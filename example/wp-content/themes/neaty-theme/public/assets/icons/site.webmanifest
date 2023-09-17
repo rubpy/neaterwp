@@ -1,0 +1,19 @@
+{
+    "name": "NeatyTheme",
+    "short_name": "NeatyTheme",
+    "icons": [
+        {
+            "src": "./android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#c76bf9",
+    "background_color": "#c76bf9",
+    "display": "standalone"
+}

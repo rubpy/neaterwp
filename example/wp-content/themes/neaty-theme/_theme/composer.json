@@ -1,0 +1,10 @@
+{
+  "type": "project",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "NeatyTheme\\": "neaty/",
+      "NeaterWP\\": "neaterwp/"
+    }
+  }
+}

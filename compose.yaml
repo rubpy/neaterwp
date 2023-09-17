@@ -1,0 +1,41 @@
+services:
+  db:
+    image: mariadb:latest
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: on-failure
+    environment:
+      - MYSQL_ROOT_PASSWORD=ntrwpexample01234567
+      - MYSQL_DATABASE=ntrwpexample
+      - MYSQL_USER=ntrwpexample
+      - MYSQL_PASSWORD=ntrwpexample01234567
+    expose:
+      - 3306
+      - 33060
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports:
+      - 8080:80
+    restart: on-failure
+    environment:
+      - WORDPRESS_DB_HOST=db:3306
+      - WORDPRESS_DB_USER=ntrwpexample
+      - WORDPRESS_DB_PASSWORD=ntrwpexample01234567
+      - WORDPRESS_DB_NAME=ntrwpexample
+    volumes:
+      - type: bind
+        source: ./example/wp-content/plugins
+        target: /var/www/html/wp-content/plugins
+      - type: bind
+        read_only: true
+        source: ./example/wp-content/themes
+        target: /var/www/html/wp-content/themes
+      - type: bind
+        read_only: true
+        source: ./src
+        target: /var/www/html/wp-content/themes/neaty-theme/_theme/neaterwp
+volumes:
+  db_data:

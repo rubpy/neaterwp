@@ -1,0 +1,11 @@
+{
+  "name": "rubpy/neaterwp",
+  "type": "library",
+  "authors": [{"name": "rubpy","email": "dev@rubpy.com"}],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "NeaterWP\\": "src/"
+    }
+  }
+}
